@@ -1,8 +1,9 @@
 public class Main {
-    public static Employee createEmployee(String name, int department, int salary){
+    public static Employee createEmployee(String name, int department, int salary) {
         Employee employee = new Employee(department, name, salary);
         return employee;
     }
+
     public static void main(String[] args) {
         Employee[] employees = new Employee[10];
         employees[0] = createEmployee("Andreev Andrey Andreevich", 1, 56000);
@@ -15,18 +16,18 @@ public class Main {
         employees[7] = createEmployee("Andreeva Violetta Andreevna", 4, 65000);
         employees[8] = createEmployee("Andreev Vitaly Andreevich", 3, 55000);
         employees[9] = createEmployee("Andreeva Svetlana Andreevna", 5, 77000);
-        for (int i = 0; i <employees.length; i++) {
+        for (int i = 0; i < employees.length; i++) {
             System.out.println(employees[i]);
         }
         int result = calculateSalary(employees);
         System.out.println("Общая сумма затрат на зарплату " + result);
         int minSalary = Integer.MAX_VALUE;
         int minIndex = -1;
-        for (int i = 0; i <employees.length; i++) {
+        for (int i = 0; i < employees.length; i++) {
             Employee employee = employees[i];
             if (employee != null && employee.getSalary() < minSalary) {
                 minIndex = i;
-                minSalary= employee.getSalary();
+                minSalary = employee.getSalary();
             }
         }
         if (minIndex == -1) {
@@ -36,11 +37,11 @@ public class Main {
         }
         int maxSalary = Integer.MIN_VALUE;
         int maxIndex = -1;
-        for (int i = 0; i <employees.length; i++) {
+        for (int i = 0; i < employees.length; i++) {
             Employee employee = employees[i];
             if (employee != null && employee.getSalary() > maxSalary) {
                 maxIndex = i;
-                maxSalary= employee.getSalary();
+                maxSalary = employee.getSalary();
             }
         }
         if (maxIndex == -1) {
@@ -64,12 +65,13 @@ public class Main {
     }
 
     private static int calculateSalary(Employee[] employees) {
-        int results = 0;
-        for (int i = 0; i < employees.length; i++){
+        int result = 0;
+        for (int i = 0; i < employees.length; i++) {
             Employee employee = employees[i];
             if (employee != null) {
-                results = results + employee.getSalary();
+                result = result + employee.getSalary();
             }
         }
-        return results;
+        return result;
     }
+}
